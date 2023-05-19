@@ -1,0 +1,23 @@
+1.	SELECT * FROM module3.employee;
+2.	select distinct Job from module3.employee;
+3.	select * from module3.employee e order by e.Empno asc , e.Deptno desc; 
+4.	select distinct Job from module3.employee order by  Job desc;
+5.	select * from module3.employee where Hiredate < ('1981-01-01');
+6.	select Empno , Ename , Sal , Sal/30 Daily_Salary , Sal*12 Annusal from module3.employee order by Annusal asc;
+7.	select Empno , Ename, Sal , Mgr from module3.employee where Mgr=7902;
+8.	SELECT *FROM module3.employee WHERE Comm>Sal;
+9.	select * from module3.employee where Job IN ('CLERK ' , 'SALESMAN');
+10.	select * from  module3.employee  where Sal*12 between 22000 and 45000;
+11.	select * from module3.employee where Ename like '%A' and length(Ename)=3;
+12.
+13.	select Job from module3.employee where Deptno='20';
+14.	select * from module3.employee where Deptno='20' and Job in ( select distinct Job from module3.employee where Deptno='10');
+15.	Select * from module3.employee where Sal in (select Sal from module3.employee where ( Ename = ‘ALLEN’ or Ename = ‘FORD’ )) order by Sal desc LIMIT 0, 1000
+17.	Select * from module3.employee where Job in(select distinct Job from module3.employee where Ename in(‘WARD’,’SMITH’)) and Ename not in (‘WARD’,’SMITH’);
+17.	select e.Job from module3.employee e where e.Deptno = 10 and e.Job not in (select Job from 
+	module3.employee where Deptno =20); .
+18.	select max(Sal) from module3.employee;
+19.	select * from employee where Sal in (select max(Sal) from employee);
+20.	 select sum(sal) from emp where empno in(select mgr from emp); 
+21.	SELECT * FROM employees WHERE salary IN (SELECT min(salary)  FROM employees  GROUP BY job_name) ORDER BY salary ASC;
+22.	SELECT * FROM employee WHERE Sal > (SELECT Sal FROM employee WHERE Ename = 'BLAKE');	
